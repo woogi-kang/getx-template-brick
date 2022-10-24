@@ -2,10 +2,10 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 
 Future<void> run(HookContext context) async {
-  var appGenerated = context.logger.progress('Generating flutter app');
+  var appGenerated = context.logger.progress('Generating flutter getx-template app');
   try {
     await _generateApp(context);
-    appGenerated('Flutter App generation Successful');
+    appGenerated('Flutter GetX Template App generation Successful');
   } catch (e) {
     context.logger.err('Generation failed');
   }
@@ -13,14 +13,14 @@ Future<void> run(HookContext context) async {
 
 Future<ProcessResult> _generateApp(HookContext context) async {
   context.logger.info('Running flutter create...');
-  var app_description = context.vars['description'];
-  var name_org = context.vars['org'];
+  final description = context.vars['description'];
+  final organization = context.vars['organization'];
   return Process.run('flutter', [
     'create',
     '{{name}}',
     '--description',
-    '$app_description',
+    '$description',
     '--org',
-    '$name_org'
+    '$organization'
   ]);
 }
