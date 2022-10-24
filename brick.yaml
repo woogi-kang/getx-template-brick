@@ -23,6 +23,18 @@ environment:
 vars:
   name:
     type: string
-    description: Your name
-    default: Dash
-    prompt: What is your name?
+    description: Your desired project name
+    default: getx_template_app
+    prompt: What is your project name?
+
+  description:
+    type: string
+    description: Project description
+    default: Flutter GetX starter template with a clean architecture structure
+    prompt: What is the description for you project?
+
+  organization:
+    type: string
+    description: Organization name
+    default: com.example.com
+    prompt: What is your organization name? ex)com.example.getx
